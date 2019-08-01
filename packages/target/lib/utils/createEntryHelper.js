@@ -1,4 +1,7 @@
 module.exports = function createEntryHelper( entries = {} ) {
+  if (typeof entries === 'function') {
+    entries = entries()
+  }
   return {
     isEntry: function isEntry( filepath = '' ) {
       return !!Object.keys( entries )
